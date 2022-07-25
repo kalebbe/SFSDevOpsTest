@@ -18,9 +18,9 @@ jobs:
             coverage-reports: cobertura.xml
     job2:
       needs: job1
-        run_script:
+        run-script:
           runs-on: ubuntu-20.04
           steps:
-            name: run_script
+            name: run-script
             run: 
               "${GITHUB_WORKSPACE}/ExerciseFile.sh"
