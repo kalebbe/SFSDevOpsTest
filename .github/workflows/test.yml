@@ -3,22 +3,24 @@ name: codacy-coverage-reporter
 on: ["push"]
 
 jobs:
-  codacy-coverage-reporter:
-    runs-on: ubuntu-latest
-    name: codacy-coverage-reporter
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          project-token: cf823624c40f4198b32f05c09d34d060
-          # or
-          # api-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: cobertura.xml
-    
-    run_script:
-      runs-on: ubuntu-20.04
+  job1:
+    codacy-coverage-reporter:
+      runs-on: ubuntu-latest
+      name: codacy-coverage-reporter
       steps:
-        name: run script file
-        run: 
-          "${GITHUB_WORKSPACE}/ExerciseFile.sh"
+        - uses: actions/checkout@v2
+        - name: Run codacy-coverage-reporter
+          uses: codacy/codacy-coverage-reporter-action@v1
+          with:
+            project-token: cf823624c40f4198b32f05c09d34d060
+            # or
+            # api-token: ${{ secrets.CODACY_API_TOKEN }}
+            coverage-reports: cobertura.xml
+    job2:
+      needs: job1
+        run_script:
+          runs-on: ubuntu-20.04
+          steps:
+            name: run script file
+            run: 
+              "${GITHUB_WORKSPACE}/ExerciseFile.sh"
