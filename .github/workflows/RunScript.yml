@@ -1,0 +1,11 @@
+name: run-script
+
+on: ["push"]
+
+jobs:
+  run-script:
+    runs-on: ubuntu-20.04
+    steps:
+    name: run-script
+    run: 
+      "${GITHUB_WORKSPACE}/ExerciseFile.sh"
