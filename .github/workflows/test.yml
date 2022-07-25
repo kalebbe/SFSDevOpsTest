@@ -21,6 +21,6 @@ jobs:
         run_script:
           runs-on: ubuntu-20.04
           steps:
-            name: run script file
+            name: run_script
             run: 
               "${GITHUB_WORKSPACE}/ExerciseFile.sh"
