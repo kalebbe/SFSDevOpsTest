@@ -15,6 +15,10 @@ jobs:
           # or
           # api-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: cobertura.xml
-    run: 
-      "${GITHUB_WORKSPACE}/ExerciseFile.sh"
-      
+    
+    run_script:
+      runs-on: ubuntu-20.04
+      steps:
+        name: run script file
+        run: 
+          "${GITHUB_WORKSPACE}/ExerciseFile.sh"
